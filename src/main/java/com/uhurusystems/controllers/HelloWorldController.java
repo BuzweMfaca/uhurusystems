@@ -1,4 +1,4 @@
-package com.uhurusystems.uhurusystems.controllers;
+package com.uhurusystems.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
