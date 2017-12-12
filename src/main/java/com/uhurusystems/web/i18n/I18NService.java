@@ -1,9 +1,10 @@
 package com.uhurusystems.web.i18n;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContext;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import java.util.Locale;
 @Service
 public class I18NService {
 
+    /** The application logger **/
+    private static final Logger LOG = LoggerFactory.getLogger(I18NService.class);
     @Autowired
     private MessageSource messageSource;
 
@@ -19,9 +22,10 @@ public class I18NService {
      * Returns a message for the given message id and the default locate in the session context
      * @param messageId The key to the message resource file
      */
-    public String getMessage(String messageID){
+    public String getMessage(String messageId){
+        LOG.info("Return i18n text for messageId {}", messageId);
         Locale locale = LocaleContextHolder.getLocale();
-        return getMessage(messageID, locale);
+        return getMessage(messageId, locale);
     }
 
     /**
